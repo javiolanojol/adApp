@@ -18,4 +18,21 @@ const createAd = (title,description) =>{
     return newAd.save();
 }
 
-module.exports = {getAllAds,deleteSingleAd,validateFields,createAd}
+const checkDate = (dateToCheck,adDate) =>{
+
+    if(new Date(dateToCheck) > new Date(adDate)) return true;
+
+}
+
+async function removePerDate(dateToCheck){
+
+    const adList = await getAllAds();
+
+    adList.forEach(async(ad)=>{
+        if(checkDate(dateToCheck,ad.publicationDate)){
+            await deleteSingleAd({_id:ad._id})
+        }
+    })
+}
+
+module.exports = {getAllAds,deleteSingleAd,validateFields,createAd,removePerDate}

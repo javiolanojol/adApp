@@ -1,10 +1,16 @@
-{{#each adsListHelper}}
-    <a href="/ads/adDetail/{{this._id}}">
+<main>
+    <section>
+        {{> purgeButton }}
+    </section>
 
-        <section>
+    {{#each adsListHelper}}
+        <a href="/ads/adDetail/{{this._id}}">
 
-            {{> ad }}
+            <section>
 
-        </section>
-    </a>
-{{/each}}
+                {{> ad }}
+
+            </section>
+        </a>
+    {{/each}}
+</main>
