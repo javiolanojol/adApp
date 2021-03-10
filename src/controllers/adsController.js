@@ -26,6 +26,7 @@ const adsController = {}
         return res.redirect("/ads/postForm")
 
     }
+
     adsController.purgeAds = async (req,res)=>{
 
         await removePerDate(req.body.date)

@@ -4,13 +4,8 @@
     </section>
 
     {{#each adsListHelper}}
-        <a href="/ads/adDetail/{{this._id}}">
 
-            <section>
+        {{> ad }}
 
-                {{> ad }}
-
-            </section>
-        </a>
     {{/each}}
 </main>
