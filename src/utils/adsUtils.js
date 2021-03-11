@@ -3,11 +3,11 @@ const Ad = require('../models/Ad')
 
 const getAllAds = () => Ad.find().lean()
 
-const deleteSingleAd =  (id) => Ad.deleteOne(id);
+const deleteSingleAd =  (id) => Ad.deleteOne(id)
 
-const validateFields = (title,description) => title !== description;
+const validateFields = (title,description) => title !== description
 
-const createAd = (title,description) => new Ad({title:title,description:description});
+const createAd = (title,description) => new Ad({title:title,description:description})
 
 const checkDate = (dateToCheck,adDate) => new Date(dateToCheck) > new Date(adDate)
 
