@@ -1,5 +1,5 @@
 'use strict'
-const {getAllAds,deleteSingleAd,validateFields,createAd,removePerDate} = require('../utils/adsUtils')
+const {getAllAds,deleteSingleAd,validateFields,removePerDate,replaceAd} = require('../utils/adsUtils')
 
 const adsController = {}
 
@@ -20,9 +20,11 @@ const adsController = {}
 
         if(validateFields(title,description)){
 
-            await createAd(title,description)
+            const newAd = await replaceAd(title,description)
+            await newAd.save();
             return res.redirect("/ads/catalog")
         }
+
         return res.redirect("/ads/postForm")
 
     }
